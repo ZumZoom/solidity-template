@@ -25,11 +25,13 @@
     "hardhat": "^2.3.0",
     "hardhat-deploy": "^0.7.11",
     "hardhat-gas-reporter": "^1.0.4",
+    "rimraf": "^3.0.2",
     "solc": "^0.8.5",
     "solhint": "^3.3.6",
     "solidity-coverage": "^0.7.16"
   },
   "scripts": {
+    "clean": "rimraf artifacts cache coverage coverage.json",
     "coverage": "hardhat coverage",
     "deploy": "hardhat deploy --network",
     "deploy:test": "hardhat deploy",
