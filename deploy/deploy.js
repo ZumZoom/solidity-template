@@ -1,4 +1,5 @@
-const { getChainId } = require('hardhat');
+const hre = require('hardhat');
+const { getChainId } = hre;
 
 module.exports = async ({ deployments, getNamedAccounts }) => {
     console.log('running deploy script');
@@ -13,10 +14,9 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
 
     console.log('Example deployed to:', example.address);
 
-    if (await getChainId() != 31337) {
+    if (await getChainId() !== '31337') {
         await hre.run('verify:verify', {
-            address: FixedFeeSwap.address,
-            constructorArguments: args,
+            address: example.address,
         });
     }
 };
