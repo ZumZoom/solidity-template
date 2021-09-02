@@ -22,7 +22,7 @@ module.exports = {
                 runs: 1000000,
             },
         },
-        version: '0.8.6',
+        version: '0.8.7',
     },
     namedAccounts: {
         deployer: {
