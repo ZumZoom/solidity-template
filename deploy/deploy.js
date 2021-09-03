@@ -1,5 +1,5 @@
 const hre = require('hardhat');
-const { getChainId } = hre;
+const { getChainId, ethers } = hre;
 
 module.exports = async ({ deployments, getNamedAccounts }) => {
     console.log('running deploy script');
@@ -8,15 +8,21 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
     const { deploy } = deployments;
     const { deployer } = await getNamedAccounts();
 
-    const example = await deploy('Example', {
+    const exampleDeployment = await deploy('Example', {
         from: deployer,
     });
 
-    console.log('Example deployed to:', example.address);
+    console.log('Example deployed to:', exampleDeployment.address);
+
+    const Example = await ethers.getContractFactory('Example');
+    const example = Example.attach(exampleDeployment.address);
+
+    const txn = await example.func('1234');
+    await txn;
 
     if (await getChainId() !== '31337') {
         await hre.run('verify:verify', {
-            address: example.address,
+            address: exampleDeployment.address,
         });
     }
 };
