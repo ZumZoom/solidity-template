@@ -11,10 +11,6 @@ module.exports = {
     etherscan: {
         apiKey: process.env.ETHERSCAN_KEY,
     },
-    gasReporter: {
-        enable: true,
-        currency: 'USD',
-    },
     solidity: {
         settings: {
             optimizer: {
