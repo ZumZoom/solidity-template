@@ -9,6 +9,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Set up environment
         uses: ./.github/actions/setup
       - run: yarn lint
@@ -16,6 +17,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Set up environment
         uses: ./.github/actions/setup
       - run: yarn test:ci
@@ -23,6 +25,7 @@ jobs:
   coverage:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Set up environment
         uses: ./.github/actions/setup
       - run: yarn coverage
