@@ -29,7 +29,4 @@ jobs:
       - name: Set up environment
         uses: ./.github/actions/setup
       - run: yarn coverage
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: codecov/codecov-action@v3
