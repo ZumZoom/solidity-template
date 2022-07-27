@@ -4,4 +4,4 @@ Hardhat template for solidity projects with preconfigured Github Actions and Cov
 
 
 [![Build Status](https://github.com/zumzoom/solidity-template/workflows/CI/badge.svg)](https://github.com/zumzoom/solidity-template/actions)
-[![Coverage Status](https://coveralls.io/repos/github/ZumZoom/solidity-template/badge.svg?branch=master)](https://coveralls.io/github/ZumZoom/solidity-template?branch=master)
+[![Coverage Status](https://codecov.io/gh/ZumZoom/solidity-template/branch/master/graph/badge.svg?token=JA2Z2CABZZ)](https://codecov.io/gh/ZumZoom/solidity-template)
