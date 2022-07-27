@@ -8,9 +8,11 @@ runs:
         node-version: 16
 
     - run: npm install -g yarn
+      shell: bash
 
     - id: yarn-cache
       run: echo "::set-output name=dir::$(yarn cache dir)"
+      shell: bash
 
     - uses: actions/cache@v3
       with:
@@ -20,3 +22,4 @@ runs:
           ${{ runner.os }}-yarn-
 
     - run: yarn
+      shell: bash
