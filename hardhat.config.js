@@ -11,13 +11,18 @@ module.exports = {
     etherscan,
     networks,
     solidity: {
-        settings: {
-            optimizer: {
-                enabled: true,
-                runs: 1000000,
+        compilers: [
+            {
+                version: '0.8.19',
+                settings: {
+                    optimizer: {
+                        enabled: true,
+                        runs: 1000000,
+                    },
+                    viaIR: true,
+                },
             },
-        },
-        version: '0.8.17',
+        ],
     },
     namedAccounts: {
         deployer: {

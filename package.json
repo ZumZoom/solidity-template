@@ -28,6 +28,7 @@
     "hardhat-deploy": "0.11.22",
     "hardhat-gas-reporter": "1.0.9",
     "rimraf": "3.0.2",
+    "solc": "0.8.19",
     "solhint": "3.3.7",
     "solidity-coverage": "0.8.2"
   },
