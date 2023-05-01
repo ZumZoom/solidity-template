@@ -1,14 +1,23 @@
-const { expectEvent } = require('@openzeppelin/test-helpers');
-
-const Example = artifacts.require('Example');
+const hre = require('hardhat');
+const { ethers } = hre;
+const { loadFixture } = require('@nomicfoundation/hardhat-network-helpers');
+const { expect } = require('chai');
 
 describe('Example', async function () {
-    beforeEach(async function () {
-        this.contract = await Example.new();
-    });
+    async function initContracts () {
+        const Example = await ethers.getContractFactory('Example');
+        const contract = await Example.deploy();
+        await contract.deployed();
+        return { contract };
+    }
 
     it('should be ok', async function () {
-        const receipt = await this.contract.func(1);
-        expectEvent(receipt, 'Log', '1');
+        const { contract } = await loadFixture(initContracts);
+        await expect(contract.func(1)).to.emit(contract, 'Log').withArgs(1);
+    });
+
+    it('should be skipped in coverage', async function () {
+        if (hre.__SOLIDITY_COVERAGE_RUNNING) { this.skip(); }
+        // TODO: add test
     });
 });

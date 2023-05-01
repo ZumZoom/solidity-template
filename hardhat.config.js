@@ -1,8 +1,11 @@
+require('@nomiclabs/hardhat-ethers');
 require('@nomiclabs/hardhat-etherscan');
-require('@nomiclabs/hardhat-truffle5');
+require('@nomicfoundation/hardhat-chai-matchers');
 require('dotenv').config();
+require('hardhat-dependency-compiler');
 require('hardhat-deploy');
 require('hardhat-gas-reporter');
+require('hardhat-tracer');
 require('solidity-coverage');
 
 const { networks, etherscan } = require('./hardhat.networks');
@@ -28,5 +31,11 @@ module.exports = {
         deployer: {
             default: 0,
         },
+    },
+    tracer: {
+        enableAllOpcodes: true,
+    },
+    dependencyCompiler: {
+        paths: [],
     },
 };
