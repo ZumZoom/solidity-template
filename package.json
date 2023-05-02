@@ -37,7 +37,7 @@
   },
   "scripts": {
     "clean": "rimraf artifacts cache coverage coverage.json contracts/hardhat-dependency-compiler",
-    "coverage": "skip_on_coverage=true hardhat coverage",
+    "coverage": "hardhat coverage",
     "deploy": "hardhat deploy --network",
     "docify": "npx solidity-utils-docify",
     "lint": "yarn run lint:js && yarn run lint:sol",
