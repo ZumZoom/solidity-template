@@ -27,10 +27,12 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
 
     console.log(`${deploymentName} deployed to: ${contract.address}`);
 
-    await hre.run('verify:verify', {
-        address: exampleDeployment.address,
-        constructorArguments: constructorArgs,
-    });
+    if (chainId !== '31337') {
+        await hre.run('verify:verify', {
+            address: exampleDeployment.address,
+            constructorArguments: constructorArgs,
+        });
+    }
 
     const Example = await ethers.getContractFactory('Example');
     const example = Example.attach(exampleDeployment.address);
