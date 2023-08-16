@@ -7,7 +7,7 @@ describe('Example', async function () {
     async function initContracts () {
         const Example = await ethers.getContractFactory('Example');
         const contract = await Example.deploy();
-        await contract.deployed();
+        await contract.waitForDeployment();
         return { contract };
     }
 

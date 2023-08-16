@@ -1,6 +1,6 @@
-require('@nomiclabs/hardhat-ethers');
-require('@nomiclabs/hardhat-etherscan');
 require('@nomicfoundation/hardhat-chai-matchers');
+require('@nomicfoundation/hardhat-ethers');
+require('@nomicfoundation/hardhat-verify');
 require('dotenv').config();
 require('hardhat-dependency-compiler');
 require('hardhat-deploy');
@@ -16,7 +16,7 @@ module.exports = {
     solidity: {
         compilers: [
             {
-                version: '0.8.20',
+                version: '0.8.21',
                 settings: {
                     optimizer: {
                         enabled: true,
