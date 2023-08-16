@@ -25,7 +25,7 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
         skipIfAlreadyDeployed: true,
     });
 
-    console.log(`${deploymentName} deployed to: ${contract.address}`);
+    console.log(`${deploymentName} deployed to: ${exampleDeployment.address}`);
 
     if (chainId !== '31337') {
         await hre.run('verify:verify', {
