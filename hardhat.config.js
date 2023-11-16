@@ -8,20 +8,21 @@ require('hardhat-gas-reporter');
 require('hardhat-tracer');
 require('solidity-coverage');
 
-const { networks, etherscan } = require('./hardhat.networks');
+const { Networks, getNetwork } = require('@1inch/solidity-utils/dist/src/networks');
+
+const { networks, etherscan } = new Networks();
 
 module.exports = {
-    etherscan,
-    networks,
     solidity: {
         compilers: [
             {
-                version: '0.8.21',
+                version: '0.8.23',
                 settings: {
                     optimizer: {
                         enabled: true,
                         runs: 1000000,
                     },
+                    evmVersion: (networks[getNetwork()])?.hardfork || 'shanghai',
                     viaIR: true,
                 },
             },
@@ -32,6 +33,8 @@ module.exports = {
             default: 0,
         },
     },
+    networks,
+    etherscan,
     tracer: {
         enableAllOpcodes: true,
     },
