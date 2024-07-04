@@ -4,7 +4,7 @@ const { loadFixture } = require('@nomicfoundation/hardhat-network-helpers');
 const { expect } = require('chai');
 
 describe('Example', async function () {
-    async function initContracts () {
+    async function initContracts() {
         const Example = await ethers.getContractFactory('Example');
         const contract = await Example.deploy();
         await contract.waitForDeployment();
