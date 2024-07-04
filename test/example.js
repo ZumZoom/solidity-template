@@ -17,7 +17,9 @@ describe('Example', async function () {
     });
 
     it('should be skipped in coverage', async function () {
-        if (hre.__SOLIDITY_COVERAGE_RUNNING) { this.skip(); }
+        if (hre.__SOLIDITY_COVERAGE_RUNNING) {
+            this.skip();
+        }
         // TODO: add test
     });
 });

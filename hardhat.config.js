@@ -10,7 +10,7 @@ require('solidity-coverage');
 
 const { Networks, getNetwork } = require('@1inch/solidity-utils/hardhat-setup');
 
-const { networks, etherscan } = (new Networks()).registerAll();
+const { networks, etherscan } = new Networks().registerAll();
 
 module.exports = {
     solidity: {
@@ -22,7 +22,7 @@ module.exports = {
                         enabled: true,
                         runs: 1000000,
                     },
-                    evmVersion: (networks[getNetwork()])?.hardfork || 'shanghai',
+                    evmVersion: networks[getNetwork()]?.hardfork || 'shanghai',
                     viaIR: true,
                 },
             },
