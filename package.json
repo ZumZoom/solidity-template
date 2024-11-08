@@ -8,7 +8,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@1inch/solidity-utils": "5.2.0",
+    "@1inch/solidity-utils": "6.0.0",
     "@openzeppelin/contracts": "5.0.2"
   },
   "devDependencies": {
@@ -16,7 +16,7 @@
     "@nomicfoundation/hardhat-ethers": "3.0.6",
     "@nomicfoundation/hardhat-network-helpers": "1.0.11",
     "@nomicfoundation/hardhat-verify": "2.0.8",
-    "chai": "4.4.1",
+    "chai": "4.5.0",
     "dotenv": "16.4.5",
     "eslint": "8.57.0",
     "eslint-config-standard": "17.1.0",
@@ -34,13 +34,13 @@
     "solc": "0.8.26",
     "solhint": "5.0.1",
     "solidity-coverage": "0.8.12",
-    "solidity-docgen": "0.5.17"
+    "solidity-docgen": "0.6.0-beta.36"
   },
   "scripts": {
     "clean": "rimraf artifacts cache coverage coverage.json contracts/hardhat-dependency-compiler",
     "coverage": "hardhat coverage",
     "deploy": "hardhat deploy --network",
-    "docify": "npx solidity-utils-docify",
+    "docify": "yarn hardhat docgen",
     "fmt": "yarn prettier --write test deploy",
     "fmt:check": "yarn prettier --check test deploy",
     "lint": "yarn run fmt:check && yarn run lint:js && yarn run lint:sol",
