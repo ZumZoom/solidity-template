@@ -7,7 +7,9 @@ require('hardhat-deploy');
 require('hardhat-gas-reporter');
 require('hardhat-tracer');
 require('solidity-coverage');
+require('solidity-docgen');
 
+const { oneInchTemplates } = require('@1inch/solidity-utils/docgen');
 const { Networks, getNetwork } = require('@1inch/solidity-utils/hardhat-setup');
 
 const { networks, etherscan } = new Networks().registerAll();
@@ -40,5 +42,11 @@ module.exports = {
     },
     dependencyCompiler: {
         paths: [],
+    },
+    docgen: {
+        outputDir: 'docs',
+        templates: oneInchTemplates(),
+        pages: 'files',
+        exclude: ['mocks', 'tests'],
     },
 };
